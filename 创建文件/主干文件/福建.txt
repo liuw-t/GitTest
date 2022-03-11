@@ -12,12 +12,7 @@ struct BuildCostIndexInfoStruct
   添加新的文件
 */
 
-    double dProfitAmount;//利润费用合计
-    double dLevyFeeAmount;//规费费用合计
-
-
-
-    double dMachineAmount;//机械费合计
-    double dOverheadAmount;//管理费合计
-    double dTaxAmount;//税金费用合计
-    double dGCZZJ;//工程费用总造价
+    double dProfitAmount;//利润合计
+    double dLevyFeeAmount;//规费合计
+    double dTaxAmount;//税金合计
+    double dGCZZJ;//工程总造价
