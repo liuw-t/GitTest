@@ -1,0 +1,32 @@
+// 列清单Model Builder，每条记录出多条清单信息
+class GBQParatacticBQModelBuilder
+{
+public:
+    GBQParatacticBQModelBuilder(GString gSPFilePath, GSPModel dataModel, int paratacticBQCount);
+    GSPModel buildModel();
+protected:
+    virtual GSPView getJobBQItemView();
+    virtual GSPTable getJobBQLMMDetailTbl(int jobBQItemID);
+private:
+    GSPModel innerBuildModel();
+    void buildParatacticModelSchema();
+    void addParatacticFields(GString destTblName, GString srcTblName);
+    void copyFieldSchemas(GSPTableSchema destTableSchema, GSPTableSchema srcTableSchema, int appendixNo);
+    void fillData();
+    bool getPartialSummed(GSPModel prjModel);
+    void loadBQItemInfo(GSPRecordList bQItemList);
+    void loadBQItemBaseInfo(GSPRecord jobBQItem, GSPRecord paratacticBQItem, int appendixNo);
+    void loadBQLMMDetailInfo(GSPRecord jobBQItem, int appendixNo, int paratacticBQItemID);
+    GSPRecord findParatacticBQLMMItem(GSPTable bQLMMDetailTbl, int paratacticBQItemID, int resID);
+    void loadBQRateDetail(GSPRecordList jobBQItems, int paratacticBQItemID);
+    GSPRecordList addRateDetail(GSPRecordList jobBQItems, int paratacticBQItemID);
+    virtual GSPTable getGrossRateTemplet(GSPRecord itemRecord);
+    int getRatePrecision();
+    void fillRateDetailCost(GSPRecord jobBQItem, GSPTable rateDetailTbl, GSPRecordList tmpRateDetailList, int appendixNo);
+protected:
+    int m_nParatacticBQCount;
+    GSPModel m_oParatacticBQModel;
+    GSPModel m_oJobModel;
+    GString m_sGSPFilePath;
+    GSPTable m_oGrossRateTemplet;
+};

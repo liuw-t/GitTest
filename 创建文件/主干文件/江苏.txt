@@ -1,0 +1,15 @@
+//添加江苏特性
+class GBQJiangSuRegionMacros : public GBQRegionMacros
+{
+public:
+    GBQJiangSuRegionMacros(
+            GRptMacroContainer2 container, GSPModel dataModel,
+            IGBQRptDataContext *dataContext, GBQGlobalDataBuilder *globalBuilder);
+protected:
+    virtual void doRegistMacros();
+    virtual bool canRegistMacros();
+private:
+    void addBQOSAmountMacro();
+    GString getOSRateField(GSPPropTable optionTable);
+    double getOSAmount(GSPTable resTable, const GString &osRateField, int costTypeID);
+};
