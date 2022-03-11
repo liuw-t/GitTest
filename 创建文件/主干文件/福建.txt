@@ -15,5 +15,6 @@ struct BuildCostIndexInfoStruct
     double dProfitAmount;//利润费用合计
     double dLevyFeeAmount;//规费费用合计
 	liuw-t
-    double dTaxAmount;//税金合计
-    double dGCZZJ;//工程总造价
+    double dTaxAmount;//税金xxx合计
+liuw-t
+    double dGCZZJ;//工程xxx总造价
